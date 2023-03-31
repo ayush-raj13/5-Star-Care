@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <!--Meta Data-->
+    <%- include('partial/title.ejs'); %> 
+
+    <% if (data.NODE_ENV == 'production') { %>
+      <!-- Production Stylesheets -->
+      <link rel="stylesheet" href="/assets/production/css/appointmentbooking3.min.css">
+
+    <% }else { %>
+      <!-- Development Stylesheets -->
+      <link rel="stylesheet" href="/assets/lib/css/bootstrap.min.css">
+      <link rel="stylesheet" href="/assets/lib/css/fontawesome.min.css">
+      <link rel="stylesheet" href="/assets/lib/css/responsive.css">
+      <link rel="stylesheet" href="/assets/lib/css/select2.min.css">
+      <link rel="stylesheet" href="/assets/lib/css/spacing.css">
+      <link rel="stylesheet" href="/assets/lib/css/style.css">
+      <link rel="stylesheet" href="/assets/lib/css/owl.carousel.min.css">
+      <link rel="stylesheet" href="/assets/lib/css/bootstrap-datepicker.min.css">
+      <link rel="stylesheet" href="/assets/lib/css/magnific-popup.css">
+      <link rel="stylesheet" href="/assets/css/header.css">
+      <link rel="stylesheet" href="/assets/css/style-calendar.css">
+      <link rel="stylesheet" href="/assets/css/vanilla-calendar.css">
+      
+    <% } %>
+    <script async type="text/javascript" src="/assets/js/vanilla-calendar.js"></script>
+
+  </head>
+
+  <body onLoad="typeWriter()">
+    <!--Header-->
+    <%- include('partial/header.ejs', {data: data }); %>
+
+    <!-- JavaScript -->
+    <script src="/assets/lib/js/jquery-3.4.1.min.js"></script>
+    <script src="/assets/lib/js/popper.min.js"></script>
+    <script src="/assets/lib/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/lib/js/all.min.js"></script>
+    <script src="/assets/lib/js/select2.full.min.js"></script>
+    <script src="/assets/js/about.js"></script>
+    <script src="/assets/lib/js/date.js"></script>
+    <script src="/assets/lib/js/time.js"></script>
+    <script src="/assets/lib/js/parser.js"></script>
+    <script src="/assets/lib/js/extras.js"></script>
+
+    <div class="contact-area pt_60 pb_90">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-6">
+            <div class="contact-form headstyle user-login-tab pt_0">
+              <ul class="nav nav-tabs mt_15" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#" role="tab">SELECT DATE</a>
+                </li>
+              </ul>
+
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div class="tab-pane active" id="patientRegistration" role="tabpanel">
+                  <form
+                    action="/patienthome/bookappointment/<%= data.patientid %>/<%= data.disease %>/<%= data.doctorid %>"
+                    method="POST" accept-charset="utf-8">
+                    <div class="form-row row mt_20">
+                      <div class="form-row row mt_20 text-center">
+                        <div class="form-group col-12">
+                          <div class="mb-3">
+                            <p>Please select the date</p>
+                            <div class="content">
+
+                              <div class="area-buttons">
+                                <button class="info" name="pastDates" style="display: none;">Disable past dates</button>
+                                <button class="info" name="availableDates" style="display: none;">Set available
+                                  dates</button>
+                                <button class="info" name="availableWeekDays" style="display: none;">Set available
+                                  weekdays</button>
+                              </div>
+
+                              <div id="myCalendar" class="vanilla-calendar" style="margin-bottom: 20px"></div>
+                              <div style="display: table;">
+                                <p style="margin-left: 5.4rem; display: table-cell;">Chosen Date: </p><input type="text"
+                                  id="ChosenConvertedDate" name="ChosenConvertedDate" style="display: table-cell;"
+                                  readonly required></input><br />
+                                <br>
+                                <p style="margin-left: 5.4rem; display: table-cell;">Time: </p><input type="text"
+                                  id="ChosenTime" name="ChosenTime" style="display: table-cell;" readonly
+                                  required></input>
+                                <br /><input type="text" id="ChosenDate" name="ChosenDate"
+                                  style="display: none;"></input>
+                                <div id="DataId" data-sortedpatient='<%= data.sortedpatient %>'
+                                  data-currentappointment="<%= data.user.CurrentAppointmentDate %>"
+                                  data-currentdisease="<%= data.user.CurrentDisease %>"
+                                  data-status="<%= data.user.status %>"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group col-12 text-center mb-3">
+                          <button type="submit" class="btn" name="form_registration"> Next </button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Footer-->
+    <%- include('partial/footer.ejs'); %>
+    
+    <script>
+      function ConvertChosenTime(str) {
+        var date1 = new Date(str),
+          hour = date1.getHours(),
+          minutes = date1.getMinutes(),
+          end = "AM";
+        if (hour >= 12) {
+          end = "PM";
+        }
+        var JoinedTime = [hour, minutes].join(":");
+        return (JoinedTime + " " + end);
+      }
+      function convert(str) {
+        var date = new Date(str),
+          mnth = ("0" + (date.getMonth() + 1)).slice(-2),
+          day = ("0" + date.getDate()).slice(-2);
+        return [day, mnth, date.getFullYear()].join("-");
+      }
+
+      var i = 0;
+      var txt = '5-Star Care';
+      var speed = 60;
+
+      function typeWriter() {
+        if (i < txt.length) {
+          document.getElementById("typeit").innerHTML += txt.charAt(i);
+          i++;
+          setTimeout(typeWriter, speed);
+        }
+      }
+
+      let pastDates = true, availableDates = false, availableWeekDays = false
+
+      let calendar = new VanillaCalendar({
+        selector: "#myCalendar",
+        months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        shortWeekday: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+        onSelect: (data, elem) => {
+          let AllPatient = document.getElementById("DataId");
+          let allpatient = AllPatient.getAttribute('data-sortedpatient');
+          let CurrentAppointment = AllPatient.getAttribute('data-currentappointment');
+          let listpatient = JSON.parse(allpatient);
+
+          let FinalDate;
+          let StartTime = 4.5 * 60 * 60 * 1000;
+          let found = 0;
+
+          // CurrentBookingDate: chosen date on calendar
+          let CurrentBookingDate = new Date(data.date);
+
+          let ModifiedCurrentBookingDate = new Date(CurrentBookingDate.getTime() - CurrentBookingDate.getTime() % 86400000);
+
+          for (const property in listpatient) {
+            let LoopBookingDate = new Date(property);
+
+            if (ModifiedCurrentBookingDate.getTime() == LoopBookingDate.getTime()) {
+              found = 1;
+              let PreviousPatientNumber = listpatient[property];
+              let PreviousPatientTime = PreviousPatientNumber * 15 * 60 * 1000;
+              let FinalMilliseconds = ModifiedCurrentBookingDate.getTime() + StartTime + PreviousPatientTime;
+              FinalDate = new Date(FinalMilliseconds);
+
+            }
+          }
+
+          if (found == 0) {
+            let FinalMilliseconds = ModifiedCurrentBookingDate.getTime() + StartTime;
+            FinalDate = new Date(FinalMilliseconds);
+          }
+          document.getElementById("ChosenDate").value = FinalDate;
+          document.getElementById("ChosenTime").value = ConvertChosenTime(FinalDate);
+          document.getElementById("ChosenConvertedDate").value = convert(FinalDate);
+        }
+      })
+
+      var PastDateFunction = function () {
+        pastDates = !pastDates
+        calendar.set({ pastDates: pastDates })
+        btnPastDates.innerText = `${(pastDates ? 'Disable' : 'Enable')} past dates`
+        AvailableWeekDaysFunction()
+      }
+
+      var AvailableWeekDaysFunction = function () {
+        availableWeekDays = !availableWeekDays
+        btnAvailableWeekDays.innerText = `${(availableWeekDays ? 'Clear available weekdays' : 'Set available weekdays')}`
+        if (!availableWeekDays) {
+          calendar.set({ availableWeekDays: [], datesFilter: false })
+          return
+        }
+        let days = [{
+          day: 'monday'
+        }, {
+          day: 'tuesday'
+        }, {
+          day: 'wednesday'
+        }, {
+          day: 'thursday'
+        }, {
+          day: 'friday'
+        }]
+        calendar.set({ availableWeekDays: days, availableDates: [], datesFilter: true })
+        typeWriter();
+      }
+
+      let btnPastDates = document.querySelector('[name=pastDates]')
+      btnPastDates.addEventListener('click', function PastDateFunction() {
+        pastDates = !pastDates
+        calendar.set({ pastDates: pastDates })
+        btnPastDates.innerText = `${(pastDates ? 'Disable' : 'Enable')} past dates`
+      })
+
+      let btnAvailableDates = document.querySelector('[name=availableDates]')
+      btnAvailableDates.addEventListener('click', () => {
+        availableDates = !availableDates
+        btnAvailableDates.innerText = `${(availableDates ? 'Clear available dates' : 'Set available dates')}`
+        if (!availableDates) {
+          calendar.set({ availableDates: [], datesFilter: false })
+          return
+        }
+        let dates = () => {
+          let result = []
+          for (let i = 1; i < 15; ++i) {
+            if (i % 2) continue
+            let date = new Date(new Date().getTime() + (60 * 60 * 24 * 1000) * i)
+            result.push({ date: `${String(date.getFullYear())}-${String(date.getMonth() + 1).padStart(2, 0)}-${String(date.getDate()).padStart(2, 0)}` })
+          }
+          return result
+        }
+        calendar.set({ availableDates: dates(), availableWeekDays: [], datesFilter: true })
+      })
+
+      let btnAvailableWeekDays = document.querySelector('[name=availableWeekDays]')
+      btnAvailableWeekDays.addEventListener('click', function AvailableWeekDaysFunction() {
+        availableWeekDays = !availableWeekDays
+        btnAvailableWeekDays.innerText = `${(availableWeekDays ? 'Clear available weekdays' : 'Set available weekdays')}`
+        if (!availableWeekDays) {
+          calendar.set({ availableWeekDays: [], datesFilter: false })
+          return
+        }
+        let days = [{
+          day: 'monday'
+        }, {
+          day: 'tuesday'
+        }, {
+          day: 'wednesday'
+        }, {
+          day: 'thursday'
+        }, {
+          day: 'friday'
+        }]
+        calendar.set({ availableWeekDays: days, availableDates: [], datesFilter: true })
+      })
+
+      var AllPatient = document.getElementById("DataId");
+      var CurrentAppointment = AllPatient.getAttribute('data-currentappointment');
+
+      let DataId = document.getElementById("DataId");
+      let PatientCurrentDisease = DataId.getAttribute('data-currentdisease');
+      let PatientCurrentStatus = DataId.getAttribute('data-status');
+
+      window.onload = PastDateFunction();
+
+    </script>
+
+
+
+  </body>
+</html>

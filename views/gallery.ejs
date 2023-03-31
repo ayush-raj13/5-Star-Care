@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <!--Meta Data-->
+    <%- include('partial/title.ejs'); %> 
+    
+    <% if (data.NODE_ENV == 'production') { %>
+      <!-- Production Stylesheets -->
+      <link rel="stylesheet" href="assets/production/css/gallery.min.css">
+
+    <% }else { %>
+      <!-- Development Stylesheets -->
+      <link rel="stylesheet" href="assets/lib/css/bootstrap.min.css">
+      <link rel="stylesheet" href="assets/lib/css/fontawesome.min.css">
+      <link rel="stylesheet" href="assets/lib/css/responsive.css">
+      <link rel="stylesheet" href="assets/lib/css/select2.min.css">
+      <link rel="stylesheet" href="assets/lib/css/spacing.css">
+      <link rel="stylesheet" href="assets/lib/css/style.css">
+      <link rel="stylesheet" href="assets/lib/css/owl.carousel.min.css">
+      <link rel="stylesheet" href="assets/lib/css/bootstrap-datepicker.min.css">
+      <link rel="stylesheet" href="assets/lib/css/magnific-popup.css">
+      <link rel="stylesheet" href="assets/css/header.css">
+    
+    <% } %>
+  </head>
+
+  <body onLoad="typeWriter()">
+    <!--Header-->
+    <%- include('partial/header.ejs', {data: data }); %>
+
+    <!--Gallery Start-->
+    <div class="gallery-page pt_60 pb_90">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-sm-6">
+            <div class="gallery-group ">
+              <div class="gallery-photo" style="background-image: url(assets/images/gal1.JPEG)">
+                <div class="gallery-bg"></div>
+                <div class="gallery-table">
+                  <div class="gallery-icon">
+                    <a href="assets/images/gal1.JPEG" class="magnific"><i class="fa fa-search-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <div class="gallery-group">
+              <div class="gallery-photo" style="background-image: url(assets/images/gal2.JPEG)">
+                <div class="gallery-bg"></div>
+                <div class="gallery-table">
+                  <div class="gallery-icon">
+                    <a href="assets/images/gal2.JPEG" class="magnific"><i class="fa fa-search-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <div class="gallery-group">
+              <div class="gallery-photo" style="background-image: url(assets/images/gal3.JPEG)">
+                <div class="gallery-bg"></div>
+                <div class="gallery-table">
+                  <div class="gallery-icon">
+                    <a href="assets/images/gal3.JPEG" class="magnific"><i class="fa fa-search-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <div class="gallery-group">
+              <div class="gallery-photo" style="background-image: url(assets/images/gal4.JPEG)">
+                <div class="gallery-bg"></div>
+                <div class="gallery-table">
+                  <div class="gallery-icon">
+                    <a href="assets/images/gal4.JPEG" class="magnific"><i class="fa fa-search-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <div class="gallery-group">
+              <div class="gallery-photo" style="background-image: url(assets/images/gal5.JPEG)">
+                <div class="gallery-bg"></div>
+                <div class="gallery-table">
+                  <div class="gallery-icon">
+                    <a href="assets/images/gal5.JPEG" class="magnific"><i class="fa fa-search-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <div class="gallery-group">
+              <div class="gallery-photo" style="background-image: url(assets/images/gal6.JPEG)">
+                <div class="gallery-bg"></div>
+                <div class="gallery-table">
+                  <div class="gallery-icon">
+                    <a href="assets/images/gal6.JPEG" class="magnific"><i class="fa fa-search-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <div class="gallery-group">
+              <div class="gallery-photo" style="background-image: url(assets/images/gal7.JPEG)">
+                <div class="gallery-bg"></div>
+                <div class="gallery-table">
+                  <div class="gallery-icon">
+                    <a href="assets/images/gal7.JPEG" class="magnific"><i class="fa fa-search-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <div class="gallery-group">
+              <div class="gallery-photo" style="background-image: url(assets/images/gal8.JPEG)">
+                <div class="gallery-bg"></div>
+                <div class="gallery-table">
+                  <div class="gallery-icon">
+                    <a href="assets/images/gal8.JPEG" class="magnific"><i class="fa fa-search-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <div class="gallery-group">
+              <div class="gallery-photo" style="background-image: url(assets/images/gal9.JPEG)">
+                <div class="gallery-bg"></div>
+                <div class="gallery-table">
+                  <div class="gallery-icon">
+                    <a href="assets/images/gal9.JPEG" class="magnific"><i class="fa fa-search-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Gallery End-->
+
+    <!--Footer-->
+    <%- include('partial/footer.ejs'); %>
+    
+    <script>
+      var i = 0;
+      var txt = '5-Star Care';
+      var speed = 60;
+
+      function typeWriter() {
+        if (i < txt.length) {
+          document.getElementById("typeit").innerHTML += txt.charAt(i);
+          i++;
+          setTimeout(typeWriter, speed);
+        }
+      }
+    </script>
+
+      <!-- JavaScript -->
+    <script defer src="assets/lib/js/jquery-3.4.1.min.js"></script>
+    <script defer src="assets/lib/js/popper.min.js"></script>
+    <script defer src="assets/lib/js/bootstrap.bundle.min.js"></script>
+    <script defer src="assets/lib/js/all.min.js"></script>
+    <script defer src="assets/lib/js/select2.full.min.js"></script>
+    <script defer src="assets/js/about.js"></script>
+    
+  </body>
+</html>

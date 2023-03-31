@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <!--Meta Data-->
+    <%- include('partial/title.ejs'); %> 
+
+    <% if (data.NODE_ENV == 'production') { %>
+      <!-- Production Stylesheets -->
+      <link rel="stylesheet" href="/assets/production/css/loginRegister.min.css">
+
+    <% }else { %>
+      <!-- Development Stylesheets -->
+      <link rel="stylesheet" href="/assets/lib/css/bootstrap.min.css">
+      <link rel="stylesheet" href="/assets/lib/css/fontawesome.min.css">
+      <link rel="stylesheet" href="/assets/lib/css/responsive.css">
+      <link rel="stylesheet" href="/assets/lib/css/select2.min.css">
+      <link rel="stylesheet" href="/assets/lib/css/spacing.css">
+      <link rel="stylesheet" href="/assets/lib/css/style.css">
+      <link rel="stylesheet" href="/assets/lib/css/owl.carousel.min.css">
+      <link rel="stylesheet" href="/assets/lib/css/bootstrap-datepicker.min.css">
+      <link rel="stylesheet" href="/assets/lib/css/magnific-popup.css">
+      <link rel="stylesheet" href="/assets/css/header.css">
+      
+    <% } %>
+  </head>
+
+  <body onLoad="typeWriter()">
+    <!--Header-->
+    <%- include('partial/header.ejs', {data: data }); %>
+
+    <div class="contact-area pt_60 pb_90">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-6">
+            <div class="contact-form headstyle user-login-tab pt_0">
+              <ul class="nav nav-tabs mt_15" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#" role="tab">Patient Credentials Update</a>
+                </li>
+              </ul>
+
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div class="tab-pane active" id="patientRegistration" role="tabpanel">
+                  <form action="/patienthome/<%= data.user._id %>/edit?_method=put" method="POST"
+                    accept-charset="utf-8">
+                    <div class="form-row row mt_20">
+                      <div class="form-group col-12">
+                        <p>Name</p>
+                        <input type="text" class="form-control" placeholder="Name" name="name" autocomplete="off"
+                          required value="<%= data.patient.name %>">
+                      </div>
+                      <div class="form-group col-12">
+                        <p>Date of birth </p> <input type="text" placeholder="MM/DD/YYYY" onfocus="(this.type='date')"
+                          onblur="(this.type='text')" name="dob" autocomplete="off" required
+                          value="<%= data.patient.dob %>">
+                      </div>
+
+                      <div class="form-group col-12">
+                        <div class="mb-3">
+                          <p>
+                            Please enter your address in the textarea
+                          </p>
+                          <textarea class="form-control" id="validationTextarea" placeholder="Address" name="address"
+                            autocomplete="off" required><%= data.patient.address %></textarea>
+
+                        </div>
+                      </div>
+                      <div class="form-group col-12">
+                        <label for="phonenum">Phone Number</label><br />
+                        <input id="phonenum" type="tel" class="form-control"
+                          placeholder="Phone Number (format:+91'xxxxxxxxxx')" name="phone" pattern="^\d{10}$"
+                          minlength="10" autocomplete="off" required value="<%= data.patient.phone %>">
+                      </div>
+                      <div class="form-group col-12">
+                        <p>Email Address</p>
+                        <input type="email" class="form-control" placeholder="Email Address" name="username"
+                          autocomplete="off" required value="<%= data.patient.username %>">
+                      </div>
+                      <div class="form-group col-12">
+                        <button type="submit" class="btn" name="form_registration">Update</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Footer-->
+    <%- include('partial/footer.ejs'); %>
+
+    <script>
+      var i = 0;
+      var txt = '5-Star Care';
+      var speed = 60;
+
+      function typeWriter() {
+        if (i < txt.length) {
+          document.getElementById("typeit").innerHTML += txt.charAt(i);
+          i++;
+          setTimeout(typeWriter, speed);
+        }
+      }
+    </script>
+
+    <!-- JavaScript -->
+    <script defer src="/assets/lib/js/jquery-3.4.1.min.js"></script>
+    <script defer src="/assets/lib/js/popper.min.js"></script>
+    <script defer src="/assets/lib/js/bootstrap.bundle.min.js"></script>
+    <script defer src="/assets/lib/js/all.min.js"></script>
+    <script defer src="/assets/lib/js/select2.full.min.js"></script>
+    <script defer src="/assets/js/about.js"></script>
+
+  </body>
+</html>

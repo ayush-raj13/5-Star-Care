@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <!--Meta Data-->
+    <%- include('partial/title.ejs'); %> 
+
+    <% if (data.NODE_ENV == 'production') { %>
+      <!-- Production Stylesheets -->
+      <link rel="stylesheet" href="assets/production/css/news.min.css">
+
+    <% }else { %>
+      <!-- Development Stylesheets -->
+      <link rel="stylesheet" href="assets/lib/css/bootstrap.min.css">
+      <link rel="stylesheet" href="assets/lib/css/fontawesome.min.css">
+      <link rel="stylesheet" href="assets/lib/css/responsive.css">
+      <link rel="stylesheet" href="assets/lib/css/select2.min.css">
+      <link rel="stylesheet" href="assets/lib/css/spacing.css">
+      <link rel="stylesheet" href="assets/lib/css/style.css">
+      <link rel="stylesheet" href="assets/lib/css/owl.carousel.min.css">
+      <link rel="stylesheet" href="assets/lib/css/bootstrap-datepicker.min.css">
+      <link rel="stylesheet" href="assets/lib/css/magnific-popup.css">
+      <link rel="stylesheet" href="assets/css/header.css">
+    
+    <% } %>
+  </head>
+
+  <body onLoad="typeWriter()">
+    <!--Header-->
+    <%- include('partial/header.ejs', {data: data }); %>
+
+    <!--Blog-One Start-->
+    <div class="blog-one-area pt_60 pb_90">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+
+            <div class="blog-one-item">
+              <div class="blog-one-photo">
+                <a href="/view2"><img src="assets/images/news-5.JPEG" alt="Blog Photo"></a>
+              </div>
+              <div class="blog-one-text">
+                <ul>
+                  <li><i class="fa fa-edit"></i><a href="#">Hypertension</a></li>
+                  <li><i class="fa fa-calendar"></i>
+                    February 19, 2019 </li>
+                </ul>
+                <h3><a href="/view2">Lorem ipsum dolor sit amet vel cu habemus</a></h3>
+                <p>
+                  Ex usu vero quaerendum, mei no falli denique. Purto consul voluptua eos cu, ludus option sensibus ne
+                  quo, nec tantas quodsi id. Posse nostro liberavisse eum ut id illum tantas. </p>
+                <div class="button-df">
+                  <a href="/view2">Read More <i class="fa fa-chevron-circle-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="blog-one-item">
+              <div class="blog-one-photo">
+                <a href="/view2"><img src="assets/images/news-4.JPEG" alt="Blog Photo"></a>
+              </div>
+              <div class="blog-one-text">
+                <ul>
+                  <li><i class="fa fa-edit"></i><a href="#">Nutrition / Diet</a></li>
+                  <li><i class="fa fa-calendar"></i>
+                    December 03, 2018 </li>
+                </ul>
+                <h3><a href="/view2">Ei qui possim abhorreant ei eam iudico disputando</a></h3>
+                <p>
+                  Ex usu vero quaerendum, mei no falli denique. Purto consul voluptua eos cu, ludus option sensibus ne
+                  quo, nec tantas quodsi id. Posse nostro liberavisse eum ut id illum tantas. </p>
+                <div class="button-df">
+                  <a href="/view2">Read More <i class="fa fa-chevron-circle-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="blog-one-item">
+              <div class="blog-one-photo">
+                <a href="/view2"><img src="assets/images/news-3.JPEG" alt="Blog Photo"></a>
+              </div>
+              <div class="blog-one-text">
+                <ul>
+                  <li><i class="fa fa-edit"></i><a href="#">Blood / Hematology</a></li>
+                  <li><i class="fa fa-calendar"></i>
+                    December 03, 2018 </li>
+                </ul>
+                <h3><a href="/view2">Est ei unum illum mucius, nemore alterum</a></h3>
+                <p>
+                  Ex usu vero quaerendum, mei no falli denique. Purto consul voluptua eos cu, ludus option sensibus ne
+                  quo, nec tantas quodsi id. Posse nostro liberavisse eum ut id illum tantas. </p>
+                <div class="button-df">
+                  <a href="/view2">Read More <i class="fa fa-chevron-circle-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="blog-one-item">
+              <div class="blog-one-photo">
+                <a href="/view2"><img src="assets/images/news-2.JPEG" alt="Blog Photo"></a>
+              </div>
+              <div class="blog-one-text">
+                <ul>
+                  <li><i class="fa fa-edit"></i><a href="#">Women's Health</a></li>
+                  <li><i class="fa fa-calendar"></i>
+                    December 03, 2018 </li>
+                </ul>
+                <h3><a href="/view2">An usu natum aperiri accommodare hendrerit</a></h3>
+                <p>
+                  Ex usu vero quaerendum, mei no falli denique. Purto consul voluptua eos cu, ludus option sensibus ne
+                  quo, nec tantas quodsi id. Posse nostro liberavisse eum ut id illum tantas. </p>
+                <div class="button-df">
+                  <a href="/view2">Read More <i class="fa fa-chevron-circle-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="blog-one-item">
+              <div class="blog-one-photo">
+                <a href="/view2"><img src="assets/images/news-1.JPEG" alt="Blog Photo"></a>
+              </div>
+              <div class="blog-one-text">
+                <ul>
+                  <li><i class="fa fa-edit"></i><a href="#">Hypertension</a></li>
+                  <li><i class="fa fa-calendar"></i>
+                    December 03, 2018 </li>
+                </ul>
+                <h3><a href="/view2">Vis nostro nominati electram ex aeterno voluptatum</a></h3>
+                <p>
+                  Ex usu vero quaerendum, mei no falli denique. Purto consul voluptua eos cu, ludus option sensibus ne
+                  quo, nec tantas quodsi id. Posse nostro liberavisse eum ut id illum tantas. </p>
+                <div class="button-df">
+                  <a href="/view2">Read More <i class="fa fa-chevron-circle-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12" style="margin-top:30px;text-align: center;">
+              </div>
+            </div>
+          </div>
+
+          <!--Sidebar Start-->
+          <div class="col-lg-4">
+            <div class="sidebar">
+              <div class="sidebar-item">
+                <h3>Categories</h3>
+                <ul>
+                  <li><i class="fas fa-angle-right"></i><a href="#">Blood / Hematology</a></li>
+                  <li><i class="fas fa-angle-right"></i><a href="#">Hypertension</a></li>
+                  <li><i class="fas fa-angle-right"></i><a href="#">Nutrition / Diet</a></li>
+                  <li><i class="fas fa-angle-right"></i><a href="#">Women's Health</a></li>
+                </ul>
+              </div>
+              <div class="sidebar-item">
+                <h3>Recent Posts</h3>
+                <div class="sidebar-recent-item">
+                  <div class="recent-photo">
+                    <a href="/view2"><img src="assets/images/news-5.JPEG" alt="Blog Photo"></a>
+                  </div>
+                  <div class="recent-text">
+                    <a href="/view2">Lorem ipsum dolor sit amet vel cu habemus</a>
+                    <div class="rpwwt-post-date">
+                      <i class="fa fa-calendar"></i>
+                      February 19, 2019
+                    </div>
+                  </div>
+                </div>
+                <div class="sidebar-recent-item">
+                  <div class="recent-photo">
+                    <a href="/view2"><img src="assets/images/news-4.JPEG" alt="Blog Photo"></a>
+                  </div>
+                  <div class="recent-text">
+                    <a href="/view2">Ei qui possim abhorreant ei eam iudico disputando</a>
+                    <div class="rpwwt-post-date">
+                      <i class="fa fa-calendar"></i>
+                      December 03, 2018
+                    </div>
+                  </div>
+                </div>
+                <div class="sidebar-recent-item">
+                  <div class="recent-photo">
+                    <a href="/view2"><img src="assets/images/news-3.JPEG" alt="Blog Photo"></a>
+                  </div>
+                  <div class="recent-text">
+                    <a href="/view2">Est ei unum illum mucius, nemore alterum</a>
+                    <div class="rpwwt-post-date">
+                      <i class="fa fa-calendar"></i>
+                      December 03, 2018
+                    </div>
+                  </div>
+                </div>
+                <div class="sidebar-recent-item">
+                  <div class="recent-photo">
+                    <a href="/view2"><img src="assets/images/news-2.JPEG" alt="Blog Photo"></a>
+                  </div>
+                  <div class="recent-text">
+                    <a href="/view2">An usu natum aperiri accommodare hendrerit</a>
+                    <div class="rpwwt-post-date">
+                      <i class="fa fa-calendar"></i>
+                      December 03, 2018
+                    </div>
+                  </div>
+                </div>
+                <div class="sidebar-recent-item">
+                  <div class="recent-photo">
+                    <a href="/view2"><img src="assets/images/news-1.JPEG" alt="Blog Photo"></a>
+                  </div>
+                  <div class="recent-text">
+                    <a href="/view2">Vis nostro nominati electram ex aeterno voluptatum</a>
+                    <div class="rpwwt-post-date">
+                      <i class="fa fa-calendar"></i>
+                      December 03, 2018
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Sidebar End-->
+        </div>
+      </div>
+    </div>
+    <!--Blog-One End-->
+
+    <!--Footer-->
+    <%- include('partial/footer.ejs'); %>
+
+    <script>
+      var i = 0;
+      var txt = '5-Star Care';
+      var speed = 60;
+
+      function typeWriter() {
+        if (i < txt.length) {
+          document.getElementById("typeit").innerHTML += txt.charAt(i);
+          i++;
+          setTimeout(typeWriter, speed);
+        }
+      }
+    </script>
+    
+    <!-- JavaScript -->
+    <script defer src="assets/lib/js/jquery-3.4.1.min.js"></script>
+    <script defer src="assets/lib/js/popper.min.js"></script>
+    <script defer src="assets/lib/js/bootstrap.bundle.min.js"></script>
+    <script defer src="assets/lib/js/all.min.js"></script>
+    <script defer src="assets/lib/js/select2.full.min.js"></script>
+    <script defer src="assets/js/about.js"></script>
+    
+  </body>
+</html>

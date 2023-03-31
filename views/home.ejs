@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href=" ">
+<title>5-Star Care</title>
+
+<!-- Bootstrap core CSS -->
+<link href="assets/home/css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href="assets/home/css/custom.css" rel="stylesheet">
+
+<!-- Helper Styles -->
+<link rel="stylesheet" href="assets/lib/css/bootstrap.min.css">
+      <link rel="stylesheet" href="assets/lib/css/fontawesome.min.css">
+      <link rel="stylesheet" href="assets/lib/css/responsive.css">
+      <link rel="stylesheet" href="assets/lib/css/select2.min.css">
+      <link rel="stylesheet" href="assets/lib/css/spacing.css">
+      <link rel="stylesheet" href="assets/lib/css/style.css">
+      <link rel="stylesheet" href="assets/lib/css/owl.carousel.min.css">
+      <link rel="stylesheet" href="assets/lib/css/owl.theme.default.min.css">
+      <link rel="stylesheet" href="assets/lib/css/bootstrap-datepicker.min.css">
+      <link rel="stylesheet" href="assets/lib/css/magnific-popup.css">
+      <link rel="stylesheet" href="assets/css/home.css">
+      <link rel="stylesheet" href="assets/css/header.css">
+
+
+<link href="assets/home/css/loaders.css" rel="stylesheet">
+<link href="assets/home/css/swiper.min.css" rel="stylesheet">
+<link rel="stylesheet" href="assets/home/css/animate.min.css">
+<link rel="stylesheet" href="assets/home/css/nivo-lightbox.css">
+<link rel="stylesheet" href="assets/home/css/nivo_themes/default/default.css">
+<!-- Font Awesome Style -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body>
+<div class="loader loader-bg">
+  <div class="loader-inner ball-clip-rotate-pulse">
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+<!-- Top Navigation -->
+    <!-- <nav class="navbar navbar-toggleable-md mb-4 top-bar navbar-static-top sps sps--abv">
+        <div class="container">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse1" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#">Burn<span>out</span></a>
+      <div class="collapse navbar-collapse" id="navbarCollapse1">
+        <ul class="navbar-nav ml-auto">
+         <li class="nav-item active"> <a class="nav-link" href="#myCarousel">Home <span class="sr-only">(current)</span></a> </li>
+        <li class="nav-item"> <a class="nav-link" href="#benefits">Benefits</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="#about">About</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="#blog">Blog</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="#gallery">Image Gallery</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="#contact">Contact</a> </li>
+        </ul>
+      </div>
+            </div>
+    </nav> -->
+    <!--Navbar Start-->
+<nav class="navbar navbar-expand-md navbar-light bg-info" id="header">
+  <img src="/assets/images/appointment.JPEG" width="100" height="100" alt="logo">
+  <ul class="list-group list-group-horizontal-sm">
+    <li class="list-group-item bg-info">
+      <i class="fa fa-envelope"></i>
+      <span>info@yourwebsite.com</span>
+    </li>
+    <li class="list-group-item bg-info">
+      <i class="fa fa-phone"></i>
+      <span>xxx-xxx-xxxx</span>
+    </li>
+  </ul>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/">HOME</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about">ABOUT US</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownPatient" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          PATIENT
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownPatient">
+          <% if (data.user==undefined ){ %>
+            <a class="dropdown-item" href="/patientregistration">REGISTRATION</a>
+            <a class="dropdown-item" href="/patientlogin">LOGIN</a>
+            <% } else if(data.user.usertype=="patient" ) { %>
+              <a class="dropdown-item" href="/patienthome">PATIENT HOME</a>
+              <a class="dropdown-item" href="/logout">LOGOUT</a>
+              <% } else { %>
+                <a class="dropdown-item" href="/patientregistration">REGISTRATION</a>
+                <a class="dropdown-item" href="/patientlogin">LOGIN</a>
+                <% } %>
+        </div>
+
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownDoctor" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          DOCTOR
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownDoctor">
+          <% if (data.user==undefined){ %>
+            <a class="dropdown-item" href="/doctorregistration">REGISTRATION</a>
+            <a class="dropdown-item" href="/doctorlogin">LOGIN</a>
+            <% } else if(data.user.usertype=="doctor" ) { %>
+              <a class="dropdown-item" href="/doctorhome">DOCTOR HOME</a>
+              <a class="dropdown-item" href="/logout">LOGOUT</a>
+              <% } else { %>
+                <a class="dropdown-item" href="/doctorregistration">REGISTRATION</a>
+                <a class="dropdown-item" href="/doctorlogin">LOGIN</a>
+                <% } %>
+        </div>
+
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownAmbulance" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          AMBULANCE SERVICE
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownAmbulance">
+          <% if (data.user==undefined){ %>
+            <a class="dropdown-item" href="/ambulanceregistration">REGISTRATION </a>
+            <a class="dropdown-item" href="/ambulancelogin">LOGIN</a>
+            <% } else if(data.user.usertype=="AmbulanceProvider" ) { %>
+              <a class="dropdown-item" href="/ambulancehome">AMBULANCE SERVICE HOME</a>
+              <a class="dropdown-item" href="/logout">LOGOUT</a>
+              <% } else { %>
+                <a class="dropdown-item" href="/ambulanceregistration">REGISTRATION </a>
+                <a class="dropdown-item" href="/ambulancelogin">LOGIN</a>
+                <% } %>
+        </div>
+
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/faq">FAQ</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/services">SERVICES</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/gallery">GALLERY</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/news">NEWS</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!--Navbar End-->
+
+    
+<!-- Swiper Silder
+    ================================================== --> 
+<!-- Slider main container -->
+<div class="swiper-container main-slider" id="myCarousel">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide slider-bg-position" style="background:url('assets/home/img/1.jpg')" data-hash="slide1">
+      <h2>It is health that is real wealth and not pieces of gold and silver</h2>
+    </div>
+    <div class="swiper-slide slider-bg-position" style="background:url('assets/home/img/3.jpg')" data-hash="slide2">
+      <h2>Happiness is nothing more than good health and a bad memory</h2>
+    </div>
+  </div>
+  <!-- Add Pagination -->
+  <div class="swiper-pagination"></div>
+  <!-- Add Navigation -->
+  <div class="swiper-button-prev"><i class="fa fa-chevron-left"></i></div>
+  <div class="swiper-button-next"><i class="fa fa-chevron-right"></i></div>
+</div>
+
+<!-- Benefits
+    ================================================== -->
+<section class="service-sec" id="benefits">
+  <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="heading text-md-center text-xs-center">
+      <h2><small>5-Star Care</small>A centralized platform for which connects doctors, patients, and services like ambulance provider.</h2>
+    </div>
+        </div>
+      <div class="col-md-8">
+        <div class="row">
+            <div class="col-md-6 text-sm-center service-block"> <i class="fa fa-plus" aria-hidden="true"></i>
+          <h3>Book Appointments</h3>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos voluptatum incidunt cum esse eaque non quia aliquam possimus at doloribus.</p>
+        </div>
+        <div class="col-md-6 text-sm-center service-block"> <i class="fa fa-leaf" aria-hidden="true"></i>
+          <h3>Live Chat</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate eveniet ab rem natus corporis enim. Ipsam odit quaerat assumenda ad.</p>
+        </div>
+        <div class="col-md-6 text-sm-center service-block"> <i class="fa fa-leaf" aria-hidden="true"></i>
+          <h3>Calorimeter</h3>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, tempora reiciendis. Molestiae repellat, maiores reprehenderit veritatis corporis incidunt pariatur obcaecati.</p>
+        </div>
+        <div class="col-md-6 text-sm-center service-block"> <i class="fa fa-bell" aria-hidden="true"></i>
+          <h3>Book Ambulance</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure veniam perferendis labore ducimus, sapiente quibusdam totam repellat minus neque ipsam!</p>
+        </div>
+        </div>
+      </div>
+      <div class="col-md-4"> <img src="assets/home/img/side-01.jpg" class="img-fluid" /> </div>
+    </div>
+    <!-- /.row --> 
+  </div>
+</section>
+
+<!-- About 
+    ================================================== -->
+<section class="about-sec parallax-section" id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <h2><small>Who We Are</small>About<br>
+          Our Website</h2>
+      </div>
+      <div class="col-md-4">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem maxime nobis ad, quia nam eligendi eum sapiente laudantium error, voluptatibus atque velit debitis molestias molestiae!</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis reprehenderit tenetur architecto minus dolor ex, deleniti ullam rerum ducimus nesciunt dolorem soluta a necessitatibus, ab at? Ducimus assumenda quidem aliquid quos voluptas odit. Placeat, beatae?</p>
+      </div>
+      <div class="col-md-4">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque culpa itaque repudiandae deleniti sint illum assumenda provident recusandae dolor quibusdam facilis ipsa asperiores, expedita tempore porro voluptatum! Nemo, alias fugiat.</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis voluptatem voluptatum quis eius neque. Voluptatum dignissimos quod, suscipit itaque eum nesciunt animi molestias quia consequuntur, distinctio porro aut, tenetur nostrum.</p>
+        <p><a href="#" class="btn btn-transparent-white btn-capsul">Explore More</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG
+    ================================================== -->
+
+<section class="blog-sec" id="blog">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12">
+    <div class="heading text-md-center text-xs-center">
+      <h2><small>Get Tips and Tricks</small>Our Website</h2>
+    </div>
+    </div>
+      <div class="col-md-4 blog-box">
+        <div class="blog-image-block"> <img src="assets/home/img/blog-01.jpg" alt="" class="img-fluid"> </div>
+        <h3 class="blog-title"><small>Tips</small><a href="#">Calm mind brings inner strength</a></h3>
+        <p class="blog-content">Our greatest happiness does not depend on the condition of life</p>
+      </div>
+      <div class="col-md-4 blog-box">
+        <div class="blog-image-block"> <img src="assets/home/img/blog-02.jpg" alt="" class="img-fluid"> </div>
+        <h3 class="blog-title"><small>Benefits</small><a href="#">Happiness is nothing more than good health</a></h3>
+        <p class="blog-content">Our greatest happiness does not depend on the condition of life</p>
+      </div>
+      <div class="col-md-4 blog-box">
+        <div class="blog-image-block"> <img src="assets/home/img/blog-03.jpg" alt="" class="img-fluid"> </div>
+        <h3 class="blog-title"><small>Products</small><a href="#">Being all equal and independent</a></h3>
+        <p class="blog-content">Our greatest happiness does not depend on the condition of life</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO
+    ================================================== -->
+<section class="video-sec parallax-section">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="wow fadeInUp" data-wow-delay="0.5s">Watch the video<small>Without health life is not life; it is only a state of langour and suffering - an image of death.</small></h2>
+        <a href="#" ><i class="fa fa-play"></i></a> <small><em>Video by: Health Tips</em></small> </div>
+    </div>
+  </div>
+</section>
+<section class="gallery-sec" id="gallery">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12">
+    <div class="heading text-md-center text-xs-center">
+      <h2><small>Stroy Through Images</small>Fitness Image Gallery</h2>
+    </div>
+    </div>
+      <div class="col-md-12"> 
+        <!-- iso section -->
+        <div class="iso-section text-md-center text-xs-center" data-wow-delay="0.5">
+          <ul class="filter-wrapper clearfix">
+            <li><a href="#" data-filter="*" class="selected opc-main-bg">All</a></li>
+            <li><a href="#" class="opc-main-bg" data-filter=".london">London</a></li>
+            <li><a href="#" class="opc-main-bg" data-filter=".paris">Paris</a></li>
+            <li><a href="#" class="opc-main-bg" data-filter=".ny">New York</a></li>
+            <li><a href="#" class="opc-main-bg" data-filter=".hn">Hong Kong</a></li>
+          </ul>
+          
+          <!-- iso box section -->
+          <div class="iso-box-section wow fadeInUp" data-wow-delay="0.9s">
+            <div class="iso-box-wrapper col4-iso-box">
+              <div class="iso-box london paris ny col-md-4 col-sm-6">
+                <div class="gallery-thumb"> <a href="assets/home/img/photo-gallery-01.jpg" data-lightbox-gallery="food-gallery"> <img src="assets/home/img/photo-gallery-01.jpg" class="fluid-img" alt="Gallery">
+                  <div class="gallery-overlay">
+                    <div class="gallery-item"> <i class="fa fa-search"></i> </div>
+                  </div>
+                  </a> </div>
+              </div>
+              <div class="iso-box london ny hn col-md-4 col-sm-6">
+                <div class="gallery-thumb"> <a href="assets/home/img/photo-gallery-02.jpg" data-lightbox-gallery="food-gallery"> <img src="assets/home/img/photo-gallery-02.jpg" class="fluid-img" alt="Gallery">
+                  <div class="gallery-overlay">
+                    <div class="gallery-item"> <i class="fa fa-search"></i> </div>
+                  </div>
+                  </a> </div>
+              </div>
+              <div class="iso-box hn col-md-4 col-sm-6">
+                <div class="gallery-thumb"> <a href="assets/home/img/photo-gallery-03.jpg" data-lightbox-gallery="food-gallery"> <img src="assets/home/img/photo-gallery-03.jpg" class="fluid-img" alt="Gallery">
+                  <div class="gallery-overlay">
+                    <div class="gallery-item"> <i class="fa fa-search"></i> </div>
+                  </div>
+                  </a> </div>
+              </div>
+              <div class="iso-box london col-md-4 col-sm-6">
+                <div class="gallery-thumb"> <a href="assets/home/img/photo-gallery-04.jpg" data-lightbox-gallery="food-gallery"> <img src="assets/home/img/photo-gallery-04.jpg" class="fluid-img" alt="Gallery">
+                  <div class="gallery-overlay">
+                    <div class="gallery-item"> <i class="fa fa-search"></i> </div>
+                  </div>
+                  </a> </div>
+              </div>
+              <div class="iso-box ny col-md-4 col-sm-6">
+                <div class="gallery-thumb"> <a href="assets/home/img/photo-gallery-05.jpg" data-lightbox-gallery="food-gallery"> <img src="assets/home/img/photo-gallery-05.jpg" class="fluid-img" alt="Gallery">
+                  <div class="gallery-overlay">
+                    <div class="gallery-item"> <i class="fa fa-search"></i> </div>
+                  </div>
+                  </a> </div>
+              </div>
+              <div class="iso-box paris lunch col-md-4 col-sm-6">
+                <div class="gallery-thumb"> <a href="assets/home/img/photo-gallery-06.jpg" data-lightbox-gallery="food-gallery"> <img src="assets/home/img/photo-gallery-06.jpg" class="fluid-img" alt="Gallery">
+                  <div class="gallery-overlay">
+                    <div class="gallery-item"> <i class="fa fa-search"></i> </div>
+                  </div>
+                  </a> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="contact-sec" id="contact">
+  <div class="container">
+    <h2>Get in Touch <small>Our work is the presentation of our capabilities.</small> </h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="exampleName">Name</label>
+          <input type="text" class="form-control" id="exampleName" aria-describedby="emailHelp">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="examplePhone">Phone Number</label>
+          <input type="text" class="form-control" id="examplePhone" aria-describedby="emailHelp">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> </div>
+      </div>
+      <div class="col-md-12">
+        <label for="exampleTextarea">Enter your Message</label>
+        <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+      </div>
+      <div class="col-md-12 text-xs-center action-block"> <a href="#" class="btn btn-capsul btn-aqua">Submit</a> </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2 col-sm-4">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Benefits</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </div>
+      <div class="col-md-2 col-sm-4">
+        <ul>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Image Gallery</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-md-2 col-sm-4">
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Term and Services</a></li>
+          <li><a href="#">About Burnout</a></li>
+        </ul>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <h2>About our Blog</h2>
+        <p>To enjoy good health, to bring true happiness to one's family, to bring peace to all, one must first discipline and control one's own mind. If a man can control his mind he can find the way to Enlightenment.</p>
+      </div>
+    </div>
+    <div class="row copy-footer">
+      <div class="col-sm-6 col-md-3"> &copy;<script type="text/javascript">document.write(new Date().getFullYear());</script> <a target="_blank" rel="nofollow" href="https://grafreez.com/"></a> Grafreez.com </div>
+      <div class="col-sm-6 col-md-3 pull-right text-xs-right">Created with <i class="fa fa-heart"></i></div>
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap core JavaScript
+    ================================================== --> 
+<!-- Placed at the end of the document so the pages load faster --> 
+<script src="assets/home/js/jquery.min.js" ></script> 
+<script src="assets/home/js/bootstrap.min.js"></script> 
+<script src="assets/home/js/scrollPosStyler.js"></script> 
+<script src="assets/home/js/swiper.min.js"></script> 
+<script src="assets/home/js/isotope.min.js"></script> 
+<script src="assets/home/js/nivo-lightbox.min.js"></script> 
+<script src="assets/home/js/wow.min.js"></script> 
+<script src="assets/home/js/core.js"></script> 
+
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <!--Meta Data-->
+    <%- include('partial/title.ejs'); %> 
+
+    <% if (data.NODE_ENV == 'production') { %>
+      <!-- Production Stylesheets -->
+      <link rel="stylesheet" href="assets/production/css/loginRegister.min.css">
+
+    <% }else { %>
+      <!-- Development Stylesheets -->
+      <link rel="stylesheet" href="assets/lib/css/bootstrap.min.css">
+      <link rel="stylesheet" href="assets/lib/css/fontawesome.min.css">
+      <link rel="stylesheet" href="assets/lib/css/responsive.css">
+      <link rel="stylesheet" href="assets/lib/css/select2.min.css">
+      <link rel="stylesheet" href="assets/lib/css/spacing.css">
+      <link rel="stylesheet" href="assets/lib/css/style.css">
+      <link rel="stylesheet" href="assets/lib/css/owl.carousel.min.css">
+      <link rel="stylesheet" href="assets/lib/css/bootstrap-datepicker.min.css">
+      <link rel="stylesheet" href="assets/lib/css/magnific-popup.css">
+      <link rel="stylesheet" href="assets/css/header.css">
+
+    <% } %>
+
+  </head>
+
+  <body onLoad="typeWriter()">
+    <!--Header-->
+    <%- include('partial/header.ejs', {data: data }); %>
+
+    <!--About Start-->
+    <div class="about-page pt_60 pb_30">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Welcome to our doctor portal </h1><br>
+            <h3>Hi <%= data.user.name %>
+            </h3> <br>
+
+            <div class="faq-group headstyle mt-30 contact-form">
+              <div id="accordion">
+                <div class="faq-item card">
+                  <div class="faq-header" id="heading1">
+                    <button class="faq-button " data-toggle="collapse" data-target="#collapse1" aria-expanded="true"
+                      aria-controls="collapse1"><i class="fa fa-caret-right"></i> View Current Appointments </button>
+                  </div>
+                  <div id="collapse1" class="collapse show" aria-labelledby="heading1" data-parent="#accordion">
+                    <div class="faq-body">
+                      <ol>
+                        <% if(data.futureappointment !=undefined && data.futureappointment.length> 0) { %>
+                          <% data.futureappointment.forEach(function(item){ %>
+                            <div class="col-lg-12">
+                              <li><b>Patient Name: </b>
+                                <%= item.PatientName %>
+                              </li>
+                              <b>Patient Phone Number: </b>
+                              <%= item.PatientPhone %> <br />
+                                <b>Appointment Status: </b>
+                                <%= item.Status %> <br />
+                                  <b>Appointment Date: </b>
+                                  <%= item.AppointmentDate %> <br />
+                                    <b>Appointment Time: </b>
+                                    <%= item.AppointmentTime %> <br />
+                                      <a href="/doctorhome/<%= item.AppointmentId %>/accept"
+                                        class="btn btn-xs btn-confirm">Confirm Appointment</a> &nbsp;
+                                      <a href="/doctorhome/<%= item.AppointmentId %>/reject"
+                                        class="btn btn-xs btn-danger">Reject Appointment</a> <br />
+                            </div>
+                            <br />
+                            <% }); %>
+                      </ol>
+                      <% }else{ %>
+                        <p>
+                          Currently there is no appointment !!!
+                        </p>
+                        <% } %>
+                    </div>
+                  </div>
+                </div>
+                <div class="faq-item card">
+                  <div class="faq-header" id="heading2">
+                    <button class="faq-button collapsed" data-toggle="collapse" data-target="#collapse2"
+                      aria-expanded="true" aria-controls="collapse2"><i class="fa fa-caret-right"></i> View Past
+                      Appointments</button>
+                  </div>
+
+                  <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordion">
+                    <div class="faq-body">
+                      <ol>
+                        <% if( data.pastappointment !=undefined && data.pastappointment.length) { %>
+                          <% data.pastappointment.forEach(function(item){ %>
+                            <div class="col-lg-12">
+                              <li><b>Patient Name: </b>
+                                <%= item.PatientName %>
+                              </li>
+                              <b>Patient Phone Number: </b>
+                              <%= item.PatientPhone %> <br />
+                                <b>Appointment Status: </b>
+                                <%= item.Status %> <br />
+                                  <b>Appointment Date: </b>
+                                  <%= item.AppointmentDate %> <br />
+                                    <b>Appointment Time: </b>
+                                    <%= item.AppointmentTime %> <br />
+                                      <% if(item.PrescriptionId !=null) { %>
+                                        <b>Prescription</b> <br />
+                                        <b>Symptoms: </b>
+                                        <%= item.Symptoms %> <br />
+                                          <b>Tests: </b>
+                                          <%= item.Tests %> <br />
+                                            <b>Medicines: </b>
+                                            <%= item.Medicines %> <br />
+                                              <b>Remarks: </b>
+                                              <%= item.Remarks %> <br />
+                                                <b>Doctor Signature: </b> <br />
+                                                <img src="<%= item.DoctorSignature %>" width="100" heigth="100"
+                                                  alt="signature"> <br /> <br />
+                                                <% }else{ %>
+                                                  <a href="/doctorhome/<%= item.PatientId %>/<%= item.AppointmentId %>/addprescription"
+                                                    class="btn btn-xs btn-confirm">Add Prescription</a> <br />
+                                                  <% } %>
+                            </div>
+                            <% }); %>
+                      </ol>
+                      <% }else{ %>
+                        <p>
+                          Currently there is no appointment !!!
+                        </p>
+                        <% } %>
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="faq-item card">
+                  <div class="faq-header" id="heading3">
+                    <button class="faq-button collapsed" data-toggle="collapse" data-target="#collapse3"
+                      aria-expanded="true" aria-controls="collapse3"><i class="fa fa-caret-right"></i> Update
+                      Credentials</button>
+                  </div>
+
+                  <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordion">
+                    <div class="faq-body">
+                      <p>
+                        <a href="/doctorhome/<%= data.user._id%>/edit" class="btn btn-primary btn-large">Update
+                          Credentials</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="faq-item card">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--About End-->
+
+    <!--Footer-->
+    <%- include('partial/footer.ejs'); %>
+    
+    <script>
+      var i = 0;
+      var txt = '5-Star Care';
+      var speed = 60;
+
+      function typeWriter() {
+        if (i < txt.length) {
+          document.getElementById("typeit").innerHTML += txt.charAt(i);
+          i++;
+          setTimeout(typeWriter, speed);
+        }
+      }
+    </script>
+
+    <!-- JavaScript -->
+    <script defer src="assets/lib/js/jquery-3.4.1.min.js"></script>
+    <script defer src="assets/lib/js/popper.min.js"></script>
+    <script defer src="assets/lib/js/bootstrap.bundle.min.js"></script>
+    <script defer src="assets/lib/js/all.min.js"></script>
+    <script defer src="assets/lib/js/select2.full.min.js"></script>
+    <script defer src="assets/js/about.js"></script>
+  </body>
+</html>

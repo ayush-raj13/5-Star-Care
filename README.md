@@ -61,9 +61,13 @@ We have built a web interface providing following solutions:
 2.Using blockchain to enhance data security of all the stakeholders.
 ## How to install and run the project ?
 
-1.Download a ZIP file of this repository from the Code drop-down menu on the home page of this repository.
+1.Copy the URL from 
+![gitclone](https://user-images.githubusercontent.com/102500829/232289495-65882f35-42c3-4117-9126-6b99c923b579.png)
+2.Run npm install command in terminal
+3.Create a file of name .env
+4.Update this information
+![env](https://user-images.githubusercontent.com/102500829/232289693-e779d420-9ebe-44ee-a29d-c05facf4829c.png)
 
-2.Install WinRAR or other service provider to extract the ZIP file. (WinRAR Installation Link: https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x64-611.exe)
+5.Final step run the command npm start
 
-3.Go to public folder, and open the index.html file.
 

@@ -23,18 +23,19 @@ This project is used by the following people:
 - Patient
 - Ambulance service provider
 - Doctors
-- Ai Live Disease detection
 
 
 ## Proposed Solution
 
 We have built a web interface providing following solutions:
 
-**Patients:**
+**Patients:**  Patients are able to book appointnents of their favorable time, Live video call counselling, Online Report Submition
 
-**Ambulance service provider:**
+**Ambulance service provider:** Ambulence booking, Live location Tracking, Display availability
 
-**Doctors:**
+**Doctors:** Online prescription Upload and Medicine Recommand, Previous Check-up records
+
+**Ai Disease Detection** Ai enabled disease detection using previous disease syndrome results
 
 
 ## Tech Stacks And Tools
@@ -43,7 +44,7 @@ We have built a web interface providing following solutions:
 - Bootstrap
 - Tailwind CSS
 - JavaScript
-- Firebase Authentication and Real Time Database
+- Authentication done with expressjs and passport-local
 - NodeJS
 - GitHub
 

@@ -4,7 +4,9 @@ This project is aimed at building an unified web interface, where patients, ambu
 
 # Live Demo
 
-https://user-images.githubusercontent.com/102500829/232288399-b087ee63-ec21-4551-8bd9-40aa3ced9bcc.mp4
+
+https://user-images.githubusercontent.com/113297899/232312422-6360c204-0822-4b08-8644-6cc775edf3eb.mp4
+
 
 # The primary problems which we are addressing in this project are as follows:
 
@@ -76,5 +78,11 @@ Run the command git clone URL in terminal
 
 
 5.Final step run the command npm start
+
+## Team Members
+1. Ayush Raj (Team Leader)
+2. Tanmoy Kumar Barman
+3. Pratyush Dehury
+4. Amit Kumar Mohapatra
 
 

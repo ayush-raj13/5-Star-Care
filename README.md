@@ -85,4 +85,5 @@ Run the command git clone URL in terminal
 3. Pratyush Dehury
 4. Amit Kumar Mohapatra
 
-
+## Link for presentation
+[Canva](https://www.canva.com/design/DAFgPRO81FU/lbA7JlQTYfPIM2-kdoByxQ/edit?utm_content=DAFgPRO81FU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)

@@ -63,10 +63,16 @@ We have built a web interface providing following solutions:
 
 1.Copy the URL from 
 ![gitclone](https://user-images.githubusercontent.com/102500829/232289495-65882f35-42c3-4117-9126-6b99c923b579.png)
+Run the command git clone URL in terminal
+<br>
 2.Run npm install command in terminal
+
 3.Create a file of name .env
-4.Update this information
-![env](https://user-images.githubusercontent.com/102500829/232289693-e779d420-9ebe-44ee-a29d-c05facf4829c.png)
+
+4.Update this information/
+![env](https://user-images.githubusercontent.com/102500829/232290130-6131a857-7ffc-4f8b-a447-a42d8685bba4.png)
+
+
 
 5.Final step run the command npm start
 
